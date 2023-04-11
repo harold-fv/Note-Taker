@@ -36,3 +36,10 @@ app.post('/api/notes', (req, res) => {
     res.json(note);
   });
   
+  // Route to delete a note
+app.delete('/api/notes/:id', (req, res) => {
+    const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    const updatedNotes = notes.filter((note) => note.id !== parseInt(req.params.id));
+    fs.writeFileSync('./db/db.json', JSON.stringify(updatedNotes));
+    res.send('Note deleted');
+  });
