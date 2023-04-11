@@ -13,3 +13,11 @@ app.use(express.static('public'));
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
   });
+
+// Route to get all notes
+app.get('/api/notes', (req, res) => {
+    const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    res.json(notes);
+  });
+
+  
