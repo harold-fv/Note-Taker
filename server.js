@@ -20,4 +20,19 @@ app.get('/api/notes', (req, res) => {
     res.json(notes);
   });
 
+  // Route to add a new note
+app.post('/api/notes', (req, res) => {
+    const newNote = req.body;
+    const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    const lastNoteId = notes.length > 0 ? notes[notes.length - 1].id : 0;
+    const id = lastNoteId + 1;
+    const note = {
+      id: id,
+      title: newNote.title,
+      text: newNote.text,
+    };
+    notes.push(note);
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+    res.json(note);
+  });
   
