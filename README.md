@@ -46,7 +46,7 @@ After you install the package ,from the command line type node server.js to run 
 
 # Usage
 
-1. When I open tha note taker, a landing page will apper with a link to a note page.
+1. When I open tha note taker, a landing page will appear with a link to a note page.
 
 ![image](https://user-images.githubusercontent.com/120603153/231065999-0ceb8cf3-4c40-427b-953c-404ce5a763c4.png)
 
